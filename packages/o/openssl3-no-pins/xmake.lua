@@ -28,7 +28,7 @@ package("openssl3-no-pins")
         add_configs("shared", {description = "Build shared library.", default = false, type = "boolean", readonly = true})
     end
 
-    add_configs("no-pinshared", {description = "no-pinshared", default = false, type = "boolean"})
+    add_configs("nopinshared", {description = "no-pinshared", default = false, type = "boolean"})
 
     on_load(function (package)
         if not package:is_precompiled() then
@@ -90,7 +90,7 @@ package("openssl3-no-pins")
             table.insert(configs, "enable-md2")
         end
 
-        if package:config("no-pinshared") then
+        if package:config("nopinshared") then
             table.insert(configs, "no-pinshared")
         end
 
